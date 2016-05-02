@@ -1,7 +1,7 @@
 ## Prediction Assignment for Practical ML - Random Forest algorithm application
 
 # Reading data in
-data <- read.csv("pml-training.csv", na.strings=c("NA",""), strip.white=T)
+data <- read.csv("pml-training.csv", na.strings=c("NA",""), strip.white=TRUE)
 
 
 # Cleaning data
@@ -30,7 +30,7 @@ sum(predictions == testing$classe) / length(predictions)
 confusionMatrix(testing$classe, predictions)$table
 
 
-# Predicting from data - Quiz 3 Solution
+# Predicting from data
 test_data <- read.csv("pml-testing.csv", na.strings=c("NA",""), strip.white=TRUE)
 used_test_data <- subset(test_data[, which(qt_NA == 0)], 
                         select=-c(X, user_name, new_window, num_window, raw_timestamp_part_1, raw_timestamp_part_2, cvtd_timestamp))
